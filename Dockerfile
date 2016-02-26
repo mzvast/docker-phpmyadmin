@@ -15,7 +15,7 @@ RUN apt-get install -y mysql-client
 ENV PHPMYADMIN_VERSION latest
 ENV MAX_UPLOAD "200M"
 
-RUN wget https://files.phpmyadmin.net/phpMyAdmin/${PHPMYADMIN_VERSION}/phpMyAdmin-${PHPMYADMIN_VERSION}-all.tar.bz2 \
+RUN wget https://www.phpmyadmin.net/downloads/phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages.tar.bz2 \
  && tar -xvjf /phpMyAdmin-${PHPMYADMIN_VERSION}-all.tar.bz2 -C / \
  && rm /phpMyAdmin-${PHPMYADMIN_VERSION}-all.tar.bz2 \
  && rm -r /www \
