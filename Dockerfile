@@ -12,14 +12,12 @@ ENV MYSQL_PASSWORD      password
 RUN apt-get update
 RUN apt-get install -y mysql-client
 
-ENV PHPMYADMIN_VERSION latest
+ENV PHPMYADMIN_VERSION 4.5.0.2
 ENV MAX_UPLOAD "200M"
 
-RUN wget https://www.phpmyadmin.net/downloads/phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages.tar.bz2 \
- && tar -xvjf /phpMyAdmin-${PHPMYADMIN_VERSION}-all.tar.bz2 -C / \
- && rm /phpMyAdmin-${PHPMYADMIN_VERSION}-all.tar.bz2 \
+RUN curl --location https://files.phpmyadmin.net/phpMyAdmin/${PHPMYADMIN_VERSION}/phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages.tar.gz | tar xzf - \
  && rm -r /www \
- && mv /phpMyAdmin-${PHPMYADMIN_VERSION}-all /www
+ && mv phpMyAdmin* /www 
 
 ADD sources/config.inc.php /
 ADD sources/create_user.sql /
