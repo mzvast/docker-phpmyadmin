@@ -1,13 +1,13 @@
 FROM corbinu/docker-nginx-php
-MAINTAINER Corbin Uselton corbin@openswimsoftware.com
+MAINTAINER mzvast <mzvast@gmail.com>
 
 ENV PMA_SECRET          blowfish_secret
-ENV PMA_USERNAME        pma
-ENV PMA_PASSWORD        password
+ENV PMA_USERNAME        root
+ENV PMA_PASSWORD        root
 ENV PMA_NO_PASSWORD     0
 ENV PMA_AUTH_TYPE       cookie
-ENV MYSQL_USERNAME      mysql
-ENV MYSQL_PASSWORD      password
+ENV MYSQL_USERNAME      root
+ENV MYSQL_PASSWORD      root
 
 RUN apt-get update
 RUN apt-get install -y mysql-client
